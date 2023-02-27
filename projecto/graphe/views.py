@@ -85,3 +85,8 @@ def sensor_data_json(request, team_id):
     labels = [data.timestamp.strftime('%H:%M:%S') for data in sensor_data]
     data = [float(data.data) for data in sensor_data]
     return JsonResponse({'labels': labels, 'data': data})
+
+def delete_feed(request, team_id):
+    sensor_data = SensorData.objects.filter(team_id=team_id)
+    sensor_data.delete()
+    return redirect('data', team_id=team_id)
