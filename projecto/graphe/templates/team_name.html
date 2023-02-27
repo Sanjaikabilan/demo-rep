@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Register team </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <label for="team_name">Enter your forking team name:</label>
+            <input type="text" placeholder="Your forking team" name="team_name" required>
+            <button type="submit">Submit</button>
+          </form>
+          
+    </body>
+</html>
