@@ -13,7 +13,6 @@ cffi==1.15.1
 charset-normalizer==3.0.1
 colorama==0.4.6
 comm==0.1.2
-contourpy==1.0.7
 
 Django==4.1.7
 docutils==0.19
