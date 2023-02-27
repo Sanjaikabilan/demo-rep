@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 from django.shortcuts import render, redirect
 from .models import Team, SensorData
 from django.http import JsonResponse
+from time import sleep
 
 client = mqtt.Client()
 
@@ -44,6 +45,8 @@ def data(request, team_id):
         messa = msg.payload.decode()
         print(messa)
         SensorData.objects.create(team=team, data=messa)
+        sleep(1)
+
 
 
     client.on_connect = on_connect
