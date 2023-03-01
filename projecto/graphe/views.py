@@ -3,12 +3,13 @@ from django.shortcuts import render, redirect
 from .models import Team, SensorData
 from django.http import JsonResponse
 from time import sleep
+import json
 
 client = mqtt.Client()
 
 
 client.username_pw_set("xxjfwlqo:xxjfwlqo", "9agKXHW-5duIFt7ehaLp6JSM4-L-SMkc")
-client.connect("fly.rmq.cloudamqp.com", 1883, 60)
+ab = client.connect("fly.rmq.cloudamqp.com", 1883, 60)
 
 
 
@@ -42,10 +43,10 @@ def data(request, team_id):
         client.subscribe("test")
 
     def on_message(client, userdata, msg):
-        messa = msg.payload.decode()
-        print(messa)
-        SensorData.objects.create(team=team, data=messa)
-        sleep(1)
+
+        messa = json.loads(msg.payload.decode())
+        SensorData.objects.create(team=team, data=messa['acio'], gyro=messa['gyrio'])
+
 
 
 
@@ -56,12 +57,20 @@ def data(request, team_id):
         if 'start' in request.POST:
             receiving_data = True
             print("start")
+            client.connect("fly.rmq.cloudamqp.com", 1883, 60)
+            client.subscribe("test")
             client.loop_start()
 
         elif 'stop' in request.POST:
             receiving_data = False
             print("stop")
+            client.unsubscribe("test")
             client.loop_stop()
+            client.disconnect()
+
+        elif 'delete' in request.POST:
+            print("delete")
+            td.delete()
     return render(request, 'data.html', {'team': team, 'td': td, 'chart_data': chart_data})
 
 def chart(request):
@@ -86,8 +95,10 @@ def chart(request):
 def sensor_data_json(request, team_id):
     sensor_data = SensorData.objects.filter(team_id=team_id)
     labels = [data.timestamp.strftime('%H:%M:%S') for data in sensor_data]
-    data = [float(data.data) for data in sensor_data]
-    return JsonResponse({'labels': labels, 'data': data})
+    data = [str(data.data) for data in sensor_data]
+    qota = [str(data.gyro) for data in sensor_data]
+    
+    return JsonResponse({'labels': labels, 'data': data, 'qota': qota})
 
 def delete_feed(request, team_id):
     sensor_data = SensorData.objects.filter(team_id=team_id)

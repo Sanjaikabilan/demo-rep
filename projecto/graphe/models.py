@@ -9,6 +9,7 @@ class Team(models.Model):
 class SensorData(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     data = models.TextField()
+    gyro = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
