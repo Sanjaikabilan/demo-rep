@@ -76,7 +76,7 @@ WSGI_APPLICATION = "projecto.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://postgres:A8A2XWyBWyBWDHOvM9J2@containers-us-west-171.railway.app:7375/railway")
+    "default": dj_database_url.parse("postgresql://postgres:sTRI2UCZAfDDrhyJCIhn@containers-us-west-142.railway.app:5743/railway")
 }
 
 
@@ -125,4 +125,5 @@ CSRF_TRUSTED_ORIGINS = [
     "https://sanjaikabilan-obscure-spork-w4p6j9gv7gvf9vqg-8000.preview.app.github.dev",
     "https://sanjaikabilan-redesigned-barnacle-qxjrg9pvq7p39x4v-8000.preview.app.github.dev",
     "https://sanjaikabilan-bug-free-space-spoon-gpj9w574jjxcwr47-8000.preview.app.github.dev",
-    "https://djangomqtt.up.railway.app",]
+    "https://djangomqtt.up.railway.app",
+    "https://djagomq.up.railway.app"]
