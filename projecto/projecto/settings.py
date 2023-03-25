@@ -126,4 +126,5 @@ CSRF_TRUSTED_ORIGINS = [
     "https://sanjaikabilan-redesigned-barnacle-qxjrg9pvq7p39x4v-8000.preview.app.github.dev",
     "https://sanjaikabilan-bug-free-space-spoon-gpj9w574jjxcwr47-8000.preview.app.github.dev",
     "https://djangomqtt.up.railway.app",
-    "https://djagomq.up.railway.app"]
+    "https://djagomq.up.railway.app",
+    "https://demo-rep-production.up.railway.app",]
