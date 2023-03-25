@@ -76,7 +76,7 @@ WSGI_APPLICATION = "projecto.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://postgres:sTRI2UCZAfDDrhyJCIhn@containers-us-west-142.railway.app:5743/railway")
+    "default": dj_database_url.parse("postgresql://postgres:FDFNxYu1KKRcDeuhAQia@containers-us-west-198.railway.app:6504/railway")
 }
 
 
