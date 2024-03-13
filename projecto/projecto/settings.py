@@ -75,9 +75,18 @@ WSGI_APPLICATION = "projecto.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": dj_database_url.parse("postgresql://postgres:FDFNxYu1KKRcDeuhAQia@containers-us-west-198.railway.app:6504/railway")
+# }
+
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://postgres:FDFNxYu1KKRcDeuhAQia@containers-us-west-198.railway.app:6504/railway")
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
+    }
 }
+
+
 
 
 # Password validation

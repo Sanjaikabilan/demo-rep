@@ -12,8 +12,8 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.username_pw_set("xxjfwlqo:xxjfwlqo", "9agKXHW-5duIFt7ehaLp6JSM4-L-SMkc")
-client.connect("fly.rmq.cloudamqp.com", 1883, 60)
+client.username_pw_set("vwjxbkan:vwjxbkan", "Uwu1CG2LOPdpWCJ6p7_GFDohPcSJNTBC")
+client.connect("jackal.rmq.cloudamqp.com", 1883, 60)
 
 client.loop_start()
 

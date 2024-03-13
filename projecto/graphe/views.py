@@ -8,8 +8,8 @@ import json
 client = mqtt.Client()
 
 
-client.username_pw_set("xxjfwlqo:xxjfwlqo", "9agKXHW-5duIFt7ehaLp6JSM4-L-SMkc")
-ab = client.connect("fly.rmq.cloudamqp.com", 1883, 60)
+client.username_pw_set("vwjxbkan:vwjxbkan", "Uwu1CG2LOPdpWCJ6p7_GFDohPcSJNTBC")
+ab = client.connect("jackal.rmq.cloudamqp.com", 1883, 60)
 
 
 
@@ -57,7 +57,7 @@ def data(request, team_id):
         if 'start' in request.POST:
             receiving_data = True
             print("start")
-            client.connect("fly.rmq.cloudamqp.com", 1883, 60)
+            client.connect("jackal.rmq.cloudamqp.com", 1883, 60)
             client.subscribe("test")
             client.loop_start()
 

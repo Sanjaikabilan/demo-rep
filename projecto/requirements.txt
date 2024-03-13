@@ -4,5 +4,3 @@ paho-mqtt
 dj-database-url
 django-database-url
 psycopg2
-
-
