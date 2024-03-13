@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,10 +76,7 @@ WSGI_APPLICATION = "projecto.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.parse("postgresql://postgres:FDFNxYu1KKRcDeuhAQia@containers-us-west-198.railway.app:6504/railway")
 }
 
 
@@ -123,4 +121,10 @@ MEDIA_URL = "media/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-CSRF_TRUSTED_ORIGINS = ["https://sanjaikabilan-obscure-spork-w4p6j9gv7gvf9vqg-8000.preview.app.github.dev","https://sanjaikabilan-redesigned-barnacle-qxjrg9pvq7p39x4v-8000.preview.app.github.dev"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://sanjaikabilan-obscure-spork-w4p6j9gv7gvf9vqg-8000.preview.app.github.dev",
+    "https://sanjaikabilan-redesigned-barnacle-qxjrg9pvq7p39x4v-8000.preview.app.github.dev",
+    "https://sanjaikabilan-bug-free-space-spoon-gpj9w574jjxcwr47-8000.preview.app.github.dev",
+    "https://djangomqtt.up.railway.app",
+    "https://djagomq.up.railway.app",
+    "https://demo-rep-production.up.railway.app",]

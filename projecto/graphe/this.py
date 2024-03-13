@@ -9,8 +9,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     #parse json data
     data = json.loads(msg.payload.decode())
-    print(data['a'])
-    print(data['b'])
+    print(data['acio'])
+    print(data['gyrio'])
 
 
 def float_to_string(o):
@@ -32,8 +32,8 @@ while True:
     b = 65
 
     data = {
-        "a": a,
-        "b": b
+        "acio": a,
+        "gyrio": b
     }
 
     client.publish("test", json.dumps(data))
